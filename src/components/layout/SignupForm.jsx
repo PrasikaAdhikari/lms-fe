@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import axios from "axios";
+import { postUser } from "../../utils/axiosHelper";
+import { Toast } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import useForm from "../../hooks/useForm";
+import { Button, Form } from "react-bootstrap";
+
 import CustomInput from "./CustomInput";
 //This is the main container for all signup-related UI and logic.
 // It declaers the signup form component as an arrow function.
+
 const SignupForm = () => {
   // grabs the navigate function from react-router-dom.
   //It lets us to programmically redirect the user to other pages after the signup.
-  const naviage = useNavigate();
+
+  const navigate = useNavigate();
 
   // It defines the starting value for the form fields, and makes sure that the
   //form fields start empty and gives us a consistent structure to the form state.
@@ -86,7 +93,7 @@ const SignupForm = () => {
   };
   // Form rendering
   return (
-    <div className="border border-white border-lg p-5 rounded rounded-5">
+    <div className="border border-white border-lg p-5 rounded rounded-5 text-white  text-start">
       <h1>Signup Form</h1>
       <hr />
       <Form onSubmit={handleOnSubmit}>
@@ -118,11 +125,32 @@ const SignupForm = () => {
           />
         </Form.Group>
  */}
+        <Form.Group className="mb-3">
+          <Form.Label> Select User Type</Form.Label>
+          <Form.Select
+            aria-label="Default select example"
+            name="type"
+            // onChange={handleOnChange}
+            //   defaultValue={“student”}
+          >
+            <option value="select">Select User Type</option>
+            {""}
+            {/* <option value=“student” selected={form.type == “student”}> */}
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </Form.Select>
+        </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+          className=" d-flex flex-column mt-2"
+        >
           Submit
         </Button>
       </Form>
     </div>
   );
 };
+
+export default SignupForm;
