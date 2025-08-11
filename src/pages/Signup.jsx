@@ -14,7 +14,7 @@ const Signup = () => {
             <h1>Library Management System</h1>
           </div>
         </Col>
-        <Col lg={6} className=" d-flex flex-column p-5">
+        <Col mb={6}>
           {/* SIGNUP FORM */}
           <SignupForm />
         </Col>

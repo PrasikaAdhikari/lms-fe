@@ -5,10 +5,8 @@ import CustomInput from "./CustomInput";
 import { loginUser } from "../utils/axiosHelper";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useUser } from "../context/userContext";
 
 const LoginForm = () => {
-  const { setUser, user } = useUser();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -77,12 +75,12 @@ const LoginForm = () => {
 
   const pastLocation = location?.state?.from?.pathname || "/transaction";
 
-  useEffect(() => {
-    user?._id && navigate(pastLocation);
-  }, [user?._id]);
+  //   useEffect(() => {
+  //     user?._id && navigate(pastLocation);
+  //   }, [user?._id]);
 
   return (
-    <div className="border border-white border-lg p-5 rounded rounded-5">
+    <div className="border border-white border-lg p-5 rounded rounded-5 text-white">
       <h1>Login Form</h1>
       <hr />
       <Form onSubmit={handleOnSubmit}>
