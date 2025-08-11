@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { postUser } from "../../utils/axiosHelper";
+import { postUser } from "../utils/axiosHelper";
 import { Toast } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import useForm from "../../hooks/useForm";
+import useForm from "../hooks/useForm";
 import { Button, Form } from "react-bootstrap";
 
 import CustomInput from "./CustomInput";
