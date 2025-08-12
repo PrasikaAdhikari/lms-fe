@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { postUser } from "../utils/axiosHelper";
+import { postUser } from "../features/UserFeature/userAPI";
 import { Toast } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import { Button, Form } from "react-bootstrap";
-
 import CustomInput from "./CustomInput";
+import { toast } from "react-toastify";
 //This is the main container for all signup-related UI and logic.
 // It declaers the signup form component as an arrow function.
 
@@ -19,9 +19,11 @@ const SignupForm = () => {
   // It defines the starting value for the form fields, and makes sure that the
   //form fields start empty and gives us a consistent structure to the form state.
   let initialState = {
-    username: "",
+    fname: "",
+    lname: "",
     email: "",
     passsword: "",
+    phone: 0,
   };
 
   //
@@ -32,12 +34,20 @@ const SignupForm = () => {
   const { form, setForm, handleOnChange } = useForm(initialState);
   let inputFields = [
     {
-      id: "name",
-      label: "Name",
-      name: "username",
+      id: "fname",
+      label: "First Name",
+      name: "fname",
       type: "text",
-      placeholder: "Enter Name",
-      value: form.username,
+      placeholder: "Enter First Name",
+      value: form.fname,
+    },
+    {
+      id: "lname",
+      label: "Last Name",
+      name: "lname",
+      type: "text",
+      placeholder: "Enter First Name",
+      value: form.lname,
     },
     {
       id: "email",
@@ -46,6 +56,14 @@ const SignupForm = () => {
       type: "email",
       placeholder: "Enter Email",
       value: form.email,
+    },
+    {
+      id: "phone",
+      label: "Phonr",
+      name: "phone",
+      type: "number",
+      placeholder: "Enter Phone",
+      value: form.phone,
     },
     {
       id: "password",
@@ -77,6 +95,7 @@ const SignupForm = () => {
         theme: "dark",
       });
     } else {
+      // console.log(form); Checked if data is avaiable o
       let data = await postUser(form);
 
       console.log("response from post user", data);
@@ -125,21 +144,21 @@ const SignupForm = () => {
           />
         </Form.Group>
  */}
-        <Form.Group className="mb-3">
-          <Form.Label> Select User Type</Form.Label>
-          <Form.Select
+        {/* <Form.Group className="mb-3">
+          <Form.Label> Select User Type</Form.Label> */}
+        {/* <Form.Select
             aria-label="Default select example"
-            name="type"
-            // onChange={handleOnChange}
-            //   defaultValue={“student”}
-          >
-            <option value="select">Select User Type</option>
+            name="type" */}
+        {/* // onChange={handleOnChange}
+              //   defaultValue={“student”} */}
+
+        {/* <option value="select">Select User Type</option>
             {""}
             {/* <option value=“student” selected={form.type == “student”}> */}
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
-          </Form.Select>
-        </Form.Group>
+        {/* <option value="student">Student</option>
+            <option value="admin">Admin</option> */}
+        {/* </Form.Select>
+        </Form.Group> */}
 
         <Button
           variant="primary"

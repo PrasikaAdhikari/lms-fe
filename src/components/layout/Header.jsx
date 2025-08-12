@@ -16,11 +16,11 @@ const Header = () => {
       bg="dark"
     >
       <Container>
-        <Navbar.Brand href="#home"></Navbar.Brand>
+        <Navbar.Brand href="#home">LMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          {/* <Nav className="ms-auto">
-            (
+          <Nav className="ms-auto">
+            {/* {user && user?._id ? ( */}
             <>
               <Nav.Link as={Link} to="/dashboard">
                 <MdSpaceDashboard />
@@ -41,7 +41,7 @@ const Header = () => {
                 Logout
               </Button>
             </>
-            ) : (
+            {/* ) : ( */}
             <>
               <Nav.Link as={Link} to="/signup">
                 <LuNotebookPen />
@@ -52,35 +52,7 @@ const Header = () => {
                 Login
               </Nav.Link>
             </>
-            )
-          </Nav> */}
-          <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/dashboard">
-              <MdSpaceDashboard />
-              Dashboard
-            </Nav.Link>
-            <Nav.Link as={Link} to="/transaction">
-              <AiOutlineTransaction />
-              Transaction
-            </Nav.Link>
-            <Button
-              onClick={() => {
-                //remove user data from context
-                setUser({});
-                localStorage.removeItem("accessToken");
-              }}
-            >
-              <LuLogOut />
-              Logout
-            </Button>
-            <Nav.Link as={Link} to="/signup">
-              <LuNotebookPen />
-              Signup
-            </Nav.Link>
-            <Nav.Link as={Link} to="/login">
-              <FaHouseUser />
-              Login
-            </Nav.Link>
+            {/* )} */}
           </Nav>
         </Navbar.Collapse>
       </Container>

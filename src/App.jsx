@@ -16,9 +16,9 @@ function App() {
         <Routes>
           <Route path="*" element={<DefaultLayout />}>
             {/* Public */}
-            <Route path="" element={<Login />} />
-            {/* Login */}
             <Route path="login" element={<Login />} />
+            {/* Login */}
+
             {/* signup */}
             <Route path="signup" element={<Signup />} />
           </Route>
