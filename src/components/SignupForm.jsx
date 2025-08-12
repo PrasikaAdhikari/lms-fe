@@ -22,10 +22,10 @@ const SignupForm = () => {
     fname: "",
     lname: "",
     email: "",
-    passsword: "",
+    password: "",
     phone: 0,
   };
-
+  //User schema and the sign form input fields should match.
   //
   console.log(useState(0));
 
@@ -59,7 +59,7 @@ const SignupForm = () => {
     },
     {
       id: "phone",
-      label: "Phonr",
+      label: "Phone",
       name: "phone",
       type: "number",
       placeholder: "Enter Phone",

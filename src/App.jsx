@@ -10,21 +10,24 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="wrapper">
-      <BrowserRouter>
-        {/* <h1>Your Library</h1> */}
-        <Routes>
-          <Route path="*" element={<DefaultLayout />}>
-            {/* Public */}
-            <Route path="login" element={<Login />} />
-            {/* Login */}
+    <>
+      <div className="wrapper">
+        <BrowserRouter>
+          {/* <h1>Your Library</h1> */}
+          <Routes>
+            <Route path="*" element={<DefaultLayout />}>
+              {/* Public */}
+              <Route path="login" element={<Login />} />
+              {/* Login */}
 
-            {/* signup */}
-            <Route path="signup" element={<Signup />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+              {/* signup */}
+              <Route path="signup" element={<Signup />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <ToastContainer />
+    </>
   );
 }
 
