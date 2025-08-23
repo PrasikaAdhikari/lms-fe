@@ -1,6 +1,5 @@
 import react from "react";
 import { Navigate, useLocation } from "react-router-dom";
-i;
 
 const Auth = ({ children }) => {
   const location = useLocation();

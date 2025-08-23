@@ -5,6 +5,7 @@ import CustomInput from "./CustomInput";
 
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
+import Login from "../pages/Login";
 // import { loginUser } from "../../../lms-be/src/controllers/authController";
 
 const LoginForm = () => {
@@ -49,7 +50,7 @@ const LoginForm = () => {
     // axios call
     // {username, email, password}
 
-    let data = await loginUser(form);
+    let data = await Login(form);
     console.log("response from login user", data);
 
     // if success go to login form

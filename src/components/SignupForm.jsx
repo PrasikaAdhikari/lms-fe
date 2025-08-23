@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { postUser } from "../features/UserFeature/userAPI";
-import { Toast } from "react-bootstrap";
+import Auth from "../auth/Auth";
 import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import { Button, Form } from "react-bootstrap";
@@ -23,6 +23,7 @@ const SignupForm = () => {
     lname: "",
     email: "",
     password: "",
+    cpassword: "",
     phone: 0,
   };
   //User schema and the sign form input fields should match.
