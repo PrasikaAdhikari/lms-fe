@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { postUser } from "../features/UserFeature/userAPI";
+// import { postUser } from "../features/UserFeature/userAPI";
 import Auth from "../auth/Auth";
 import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";

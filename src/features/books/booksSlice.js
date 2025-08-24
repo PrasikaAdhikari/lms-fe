@@ -1,29 +1,24 @@
-import { apiProcessor } from "../../utils/axiosHelper";
-const apiUrl = import.meta.env.VITE_APP_API_URL + "/api/v1";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const getAllBooksApi = async () => {
-  return apiProcessor({
-    method: "GET",
-    url: `${apiUrl}/books`,
-    isPrivate: true,
-  });
+const initialState = {
+  books: [],
+  selectedBook: {},
 };
 
-export const createBookApi = async (bookObj) => {
-  return apiProcessor({
-    method: "POST",
-    url: `${apiUrl}/books`,
-    isPrivate: true,
-    data: bookObj,
-    contentType: "multipart/form-data",
-  });
-};
+const bookSlice = createSlice({
+  name: "book",
+  initialState,
+  reducers: {
+    setBooks: (state, actions) => {
+      state.books = actions.payload;
+    },
+    setSelectedBooks: (state, actions) => {
+      state.selectedBook = actions.payload;
+    },
+  },
+});
 
-export const updateBookApi = async ({ _id, ...bookObj }) => {
-  return apiProcessor({
-    method: "Put",
-    url: `${apiUrl}/books/${_id}`,
-    isPrivate: true,
-    data: bookObj,
-  });
-};
+const { reducer, actions } = bookSlice;
+
+export const { setBooks, setSelectedBooks } = actions;
+export default reducer;

@@ -1,11 +1,21 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Signup from "./pages/Signup";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import DefaultLayout from "./components/layouts/DefaultLayout";
 import Login from "./pages/Login";
-import DefaultLayout from "./components/layout/DefaultLayout";
-import { ToastContainer } from "react-toastify";
+import Register from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 import Auth from "./auth/Auth";
+import { ToastContainer } from "react-toastify";
+import VerifyEmail from "./pages/VerifyEmail";
+import AdminLayout from "./components/layouts/AdminLayout";
+import Books from "./pages/Books";
+import Users from "./pages/Users";
+import Borrows from "./pages/Borrows";
+import AddBooks from "./pages/AddBooks";
+import EditBooks from "./pages/EditBooks";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,39 +23,22 @@ function App() {
   return (
     <>
       <div className="wrapper">
-        <BrowserRouter>
-          {/* <h1>Your Library</h1> */}
-          <Routes>
-            <Route path="*" element={<DefaultLayout />}>
-              {/* Public */}
-              <Route path="login" element={<Login />} />
-              {/* Login */}
+        <Routes>
+          <Route path="/" element={<DefaultLayout />}>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            {/* <Route path="verify-email" element={<VerifyEmail />} /> */}
+          </Route>
 
-              {/* signup */}
-              <Route path="signup" element={<Signup />} />
-            </Route>
-
-            {/* Private  */}
-            {/* dashboard */}
-            {/* <Route
-              path="dashboard"
-              element={
-                <Auth>
-                  <Dashboard />
-                </Auth>
-              }
-            /> */}
-            {/* transaction */}
-            {/* <Route
-              path="transaction"
-              element={
-                <Auth>
-                  <Transaction />
-                </Auth>
-              }
-            /> */}
-          </Routes>
-        </BrowserRouter>
+          <Route path="/" element={<AdminLayout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="books" element={<Books />} />
+            <Route path="users" element={<Users />} />
+            <Route path="borrows" element={<Borrows />} />
+            <Route path="books/add-books" element={<AddBooks />} />
+            <Route path="books/edit-books" element={<EditBooks />} />
+          </Route>
+        </Routes>
       </div>
       <ToastContainer />
     </>
